@@ -1,0 +1,23 @@
+{% extends 'calculator/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Investment Calculator</h1>
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <div class="d-grid">
+                        <button class="btn btn-primary " type="submit">Calculate</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'calculator/base.html' %}
+
+{% block content %}
+
+
+<div class="row justify-content-center mt-5">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Investment Result</h1>
+                <h3 class="text-center">After {{ number_of_years }} years, your investment is worth ${{ total_result }}</h3>
+                <div class="mt-5">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Year</th>
+                                <th scope="col">Interest</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in yearly_results.items %}
+                            <tr>
+                                <th scope="row">{{ key }}</th>
+                                <td>{{ value.interest }}</td>
+                                <td>{{ value.total }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-grid">
+                    <a class="btn btn-outline-primary mt-3" href="{% url 'index' %}">Go Back</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
